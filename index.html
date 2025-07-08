@@ -1,0 +1,95 @@
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מעבדת מצבי צבירה וירטואלית</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&display=swap" rel="stylesheet">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="lab-container">
+        <header class="lab-header">
+            <h1>מעבדת מצבי צבירה וירטואלית</h1>
+            <p>חקור את מצבי הצבירה של חומרים שונים במבט מיקרוסקופי</p>
+        </header>
+
+        <main class="lab-main">
+            <div class="lab-controls">
+                <div class="control-group">
+                    <label for="material-select">בחר חומר:</label>
+                    <select id="material-select">
+                        <option value="chocolate">שוקולד חלב</option>
+                        <option value="sugar">סוכר</option>
+                        <option value="oil">שמן זית</option>
+                        <option value="milk">חלב</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="temperature-slider">טמפרטורה: <span id="current-temperature">25</span>°C</label>
+                    <div class="temperature-input-group">
+                        <input type="range" id="temperature-slider" min="-20" max="200" value="25" step="1">
+                        <input type="number" id="temperature-input" value="25" min="-20" max="200">
+                    </div>
+                </div>
+
+                <div class="state-display">
+                    <h2>מצב צבירה: <span id="current-state">נוזל</span></h2>
+                    <div class="state-explanation">
+                        <p id="state-description"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lab-display">
+                <div class="microscopic-view-container">
+                    <h3>מבט מיקרוסקופי</h3>
+                    <div id="microscopic-view"></div>
+                </div>
+            </div>
+
+            <div class="learning-section">
+                <h3>שאלות לחקירה</h3>
+                <div class="questions">
+                    <div class="question">
+                        <p>באיזו טמפרטורה החלב מתאדה?</p>
+                        <input type="number" class="answer-input" data-question="milk-boiling">
+                        <button class="check-answer" data-correct="100">בדוק</button>
+                        <span class="feedback"></span>
+                    </div>
+                    <div class="question">
+                        <p>באיזו טמפרטורה השמן קופא?</p>
+                        <input type="number" class="answer-input" data-question="oil-freezing">
+                        <button class="check-answer" data-correct="2">בדוק</button>
+                        <span class="feedback"></span>
+                    </div>
+                    <div class="question">
+                        <p>מה מגיע לרתיחה מהר יותר - חלב או שמן זית?</p>
+                        <select class="answer-input" data-question="boiling-comparison">
+                            <option value="">בחר תשובה...</option>
+                            <option value="milk">חלב</option>
+                            <option value="oil">שמן זית</option>
+                        </select>
+                        <button class="check-answer" data-correct="milk">בדוק</button>
+                        <span class="feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="lab-footer">
+            <p>מעבדה וירטואלית לחקר מצבי צבירה</p>
+        </footer>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
